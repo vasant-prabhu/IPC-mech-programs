@@ -13,6 +13,8 @@ int food=0;
 int main()
 {
 pthread_t thread[2];
+pthread_attr_t attr;
+pthread_attr_init(&attr); // attributes should be initialized before pthread_create. 
 pthread_mutex_init(&mutex,NULL);
 pthread_cond_init(&cond,NULL);
 
