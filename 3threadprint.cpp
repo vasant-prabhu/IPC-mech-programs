@@ -8,7 +8,7 @@ using namespace std;
 bool result1=false;
 bool result2=false;
 bool result3=true;
-int i=1;
+int i=1;//global
 
 void func1()
 {
