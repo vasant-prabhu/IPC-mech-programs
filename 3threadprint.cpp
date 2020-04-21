@@ -8,10 +8,10 @@ using namespace std;
 bool result1=false;
 bool result2=false;
 bool result3=true;
+int i=1;
 
 void func1()
 {
-   int i=1;
    while(1)
    {
       std::unique_lock<std::mutex>lck(mu);
@@ -19,7 +19,7 @@ void func1()
       result3=false;
       cout<<i<<endl;
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
-      i+=3;
+      i++;
       result1=true;
       lck.unlock();
       cv.notify_one();
@@ -29,7 +29,6 @@ void func1()
 
 void func2()
 {
-   int i=2;
    while(1)
    {
       std::unique_lock<std::mutex>lck(mu);
@@ -38,7 +37,7 @@ void func2()
       cout<<i<<endl;
 
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
-      i+=3;
+      i++;
       
       result2=true;
       lck.unlock();
@@ -49,14 +48,13 @@ void func2()
 
 void func3()
 {  
-    int i=3;
     while(1)
     {  
       std::unique_lock<std::mutex>lck(mu);
       cv2.wait(lck,[]{return result2?true:false;});
       result2=false;
       cout<<i<<endl;
-      i+=3;
+      i++;
       std::this_thread::sleep_for(std::chrono::milliseconds(100));
       result3=true;
       lck.unlock();
