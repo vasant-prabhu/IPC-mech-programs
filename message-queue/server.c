@@ -1,7 +1,6 @@
 // This is the server which will issue Airplane seat tokens on request to clients.
 // Once it receives a request , it will place the token onto the client's message queue.
 // Client will communicate its message queue name to server.
-//************************JAI SHRI RAM*******************************************
 
 //Step 1:- Create a message queue for the server
 
