@@ -1,7 +1,6 @@
 // This is the client which will send request to server for  Airplane seat tokens.
 // Once enter is pressed , it sends request to server for a token 
 // Client will communicate its message queue name to server.
-//************************JAI SHRI RAM*******************************************
 
 //Step 1:- Create a message queue for the client
 
